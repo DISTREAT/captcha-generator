@@ -19,10 +19,12 @@
     "typescript": "^5.2.2"
   },
   "files": [
-    "dist"
+    "dist",
+    "example.ts"
   ],
   "scripts": {
     "build": "bun build --target=node ./src/index.ts --outdir=dist --minify",
+    "example": "bun ./example.ts",
     "lint": "eslint . --ext .ts"
   },
   "types": "dist/index.d.ts",
