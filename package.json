@@ -1,5 +1,5 @@
 {
-  "name": "captcha-image-generator",
+  "name": "captcha-generator",
   "version": "0.1.0",
   "license": "MIT",
   "description": "An opinionated captcha image generator for displaying text - trying to mitigate the risk of OCR.",
