@@ -13,7 +13,8 @@
     "eslint-plugin-n": "^16.2.0",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-unicorn": "^48.0.1",
-    "eslint-plugin-sonarjs": "^0.21.0"
+    "eslint-plugin-sonarjs": "^0.21.0",
+    "asyncmark": "^1.0.1"
   },
   "peerDependencies": {
     "typescript": "^5.2.2"
@@ -25,6 +26,7 @@
   "scripts": {
     "build": "bun build --target=node ./src/index.ts --outdir=dist --minify",
     "example": "bun ./example.ts",
+    "bench": "bun ./benchmark.ts",
     "lint": "eslint . --ext .ts"
   },
   "types": "dist/index.d.ts",
