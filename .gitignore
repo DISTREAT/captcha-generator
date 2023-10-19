@@ -3,6 +3,9 @@
 # Remove example captcha image
 captcha.jpeg
 
+# Documentation
+docs
+
 # Logs
 
 logs

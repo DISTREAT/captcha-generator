@@ -14,7 +14,8 @@
     "eslint-plugin-n": "^16.2.0",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-sonarjs": "^0.21.0",
-    "eslint-plugin-unicorn": "^48.0.1"
+    "eslint-plugin-unicorn": "^48.0.1",
+    "typedoc": "^0.25.2"
   },
   "peerDependencies": {
     "typescript": "^5.2.2"
@@ -27,7 +28,8 @@
     "build": "bun tsc --noEmit && bun build --target=node ./src/index.ts --outdir=dist --minify",
     "example": "bun ./example.ts",
     "bench": "bun ./benchmark.ts",
-    "lint": "eslint . --ext .ts"
+    "lint": "eslint . --ext .ts",
+    "doc": "bun run typedoc --out docs src/index.ts"
   },
   "types": "dist/index.d.ts",
   "dependencies": {
