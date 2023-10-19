@@ -1,13 +1,18 @@
 {
   "compilerOptions": {
-    "target": "es2020",
+    "lib": ["ESNext"],
     "module": "esnext",
+    "target": "esnext",
+    "moduleResolution": "bundler",
+    "moduleDetection": "force",
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
     "strict": true,
     "esModuleInterop": true,
-    "moduleResolution": "node",
     "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
     "allowJs": true,
-    "noEmit": true,
     "declaration": true,
     "outDir": "./dist",
     "types": [
@@ -15,6 +20,7 @@
     ]
   },
   "include": [
-    "src/**/*"
+    "*.ts",
+    "src/**/*.ts"
   ]
 }

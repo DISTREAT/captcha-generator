@@ -1,20 +1,23 @@
 {
   "name": "captcha-image-generator",
   "version": "0.1.0",
-  "description": "A captcha image generator for displaying text - trying to mitigate the risk of OCR.",
   "license": "MIT",
+  "description": "An opinionated captcha image generator for displaying text - trying to mitigate the risk of OCR.",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "scripts": {
-    "build": "bun build ./src/index.ts --outdir=dist --minify"
+  "devDependencies": {
+    "bun-types": "latest",
+  },
+  "peerDependencies": {
+    "typescript": "^5.2.2"
   },
   "files": [
     "dist"
   ],
-  "devDependencies": {
-    "bun-types": "latest"
+  "scripts": {
+    "build": "bun build --target=node ./src/index.ts --outdir=dist --minify"
   },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "gm": "^1.25.0"
   }
 }
