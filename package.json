@@ -7,14 +7,14 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.8.0",
     "@typescript-eslint/parser": "^6.8.0",
+    "asyncmark": "^1.0.1",
     "bun-types": "latest",
     "eslint": "^8.51.0",
     "eslint-plugin-import": "^2.28.1",
     "eslint-plugin-n": "^16.2.0",
     "eslint-plugin-promise": "^6.1.1",
-    "eslint-plugin-unicorn": "^48.0.1",
     "eslint-plugin-sonarjs": "^0.21.0",
-    "asyncmark": "^1.0.1"
+    "eslint-plugin-unicorn": "^48.0.1"
   },
   "peerDependencies": {
     "typescript": "^5.2.2"
@@ -24,13 +24,14 @@
     "example.ts"
   ],
   "scripts": {
-    "build": "bun build --target=node ./src/index.ts --outdir=dist --minify",
+    "build": "bun tsc --noEmit && bun build --target=node ./src/index.ts --outdir=dist --minify",
     "example": "bun ./example.ts",
     "bench": "bun ./benchmark.ts",
     "lint": "eslint . --ext .ts"
   },
   "types": "dist/index.d.ts",
   "dependencies": {
+    "@types/gm": "^1.25.3",
     "gm": "^1.25.0"
   }
 }

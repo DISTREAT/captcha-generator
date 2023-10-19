@@ -5,9 +5,9 @@ const gm = gmConstructor.subClass({ imageMagick: true });
 
 export interface GeneratorOptions {
     /// width of the captcha
-    width?: string,
+    width?: number,
     /// height of the captcha
-    height?: string,
+    height?: number,
     /// move the characters away from the border
     padding?: number,
     /// add space between the characters
@@ -33,40 +33,38 @@ const defaultGeneratorOptions: GeneratorOptions = {
 export class Generator {
     private options: GeneratorOptions;
 
-    constructor(options: GeneratorOptions): void {
+    constructor(options: GeneratorOptions) {
         this.options = { ...defaultGeneratorOptions, ...options };
     }
 
-    generateImage(writeStream: Writable, solution: string): Promise<void> {
-        const context = gm(this.options.width, this.options.height, "#ffffff");
-        let last_position_x = this.options.padding - this.options.spacing;
+    generateImage(writeStream: Writable, solution: string): void {
+        const context = gm(this.options.width!, this.options.height!, "#ffffff");
+        let last_position_x = this.options.padding! - this.options.spacing!;
 
         for (let index = 0; index < solution.length; index++) {
             last_position_x = getRandomInt(
-                last_position_x + this.options.spacing,
+                last_position_x + this.options.spacing!,
                 Math.min(
-                    this.options.width - this.options.padding,
-                    last_position_x + (this.options.width / solution.length)
+                    this.options.width! - this.options.padding!,
+                    last_position_x + (this.options.width! / solution.length)
                 )
             ),
 
-            context.fontSize(this.options.fontSize).draw(
-                "translate",
-                last_position_x,
-                ",",
-                getRandomInt(this.options.padding, this.options.height - this.options.padding),
-                "rotate",
-                getRandomInt(...this.options.rotationLimit),
-                "text",
-                "0,0",
-                `"${solution[index]}"`,
-            );
+            context.fontSize(this.options.fontSize!).draw(`
+                translate
+                ${last_position_x},${getRandomInt(this.options.padding!, this.options.height! - this.options.padding!)}
+                rotate
+                ${getRandomInt(this.options.rotationLimit![0], this.options.rotationLimit![1])}
+                text
+                0,0
+                "${solution[index]}"
+            `);
         }
 
-        context.swirl(this.options.swirl);
+        context.swirl(this.options.swirl!);
         context.noise("impulse");
 
-        context.compress("LZMA").quality(60).stream("jpeg", function (error, stdout,) {
+        context.compress("LZMA").quality(60).stream("jpeg", function (error, stdout, stderr) {
             if (error) throw error;
             stdout.pipe(writeStream);
         });
@@ -74,7 +72,7 @@ export class Generator {
 }
 
 // convenience function
-function getRandomInt(min: int, max: int) : int {
+function getRandomInt(min: number, max: number) : number {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
