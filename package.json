@@ -5,6 +5,7 @@
   "description": "An opinionated captcha image generator for displaying text - trying to mitigate the risk of OCR.",
   "main": "dist/index.js",
   "devDependencies": {
+    "@types/cross-spawn": "^6.0.4",
     "@typescript-eslint/eslint-plugin": "^6.8.0",
     "@typescript-eslint/parser": "^6.8.0",
     "asyncmark": "^1.0.1",
@@ -33,7 +34,6 @@
   },
   "types": "dist/index.d.ts",
   "dependencies": {
-    "@types/gm": "^1.25.3",
-    "gm": "^1.25.0"
+    "cross-spawn": "^7.0.3"
   }
 }
