@@ -29,7 +29,7 @@ innovative and might be the next step after neural networks overcome the issue o
 to user to retype a code found in an image, outbeating the issues of current OCR technology. Nonetheless,
 this would only solve the issue until AI models are trained to recognize these challenges as well. Another
 flaw would be to have a low count of images, as you could just detect recorded patterns.
-- Another mentionable solution is [DotCHA](https://github.com/SuziKim) which I feel has a good chance of
+- Another mentionable solution is [DotCHA](https://github.com/SuziKim/DotCHA) which I feel has a good chance of
 surviving for a longer time to come, but the user-friendliness, in contrast, does not seem like the scope
 of the project, because it took me way too long to identify the demoed CAPTCHAs.
 
