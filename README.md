@@ -69,6 +69,7 @@ The slightly off-putting performance is still the biggest issue at the moment, b
 since I suppose that another image generation software would be just as slow as [ImageMagick](https://imagemagick.org/index.php)
 which is used by this library.
 
-Although the image processing itself is probably the biggest bottleneck, it might make sense to use another programming language
-in the future, because typescript/javascript is only so adequate for this task.
+Although the image processing itself is probably the biggest bottleneck, I've also implemented an improved version for use as a
+microservice ([CAPTCHA-System](https://github.com/DISTREAT/captcha-system)).
+
 
